@@ -39,7 +39,7 @@ templates_path = ['_templates']
 html_static_path = ['_static']
 
 
-exclude_patterns = ["available_label.json", "extras/*"]
+exclude_patterns = ["available_label.json"]
 
 
 # get available styles via `pygmentize -L styles`
