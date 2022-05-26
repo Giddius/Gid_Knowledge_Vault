@@ -11,4 +11,4 @@ yarl==1.7.2
 PyGithub==1.55
 sphinx-issues==3.0.1
 sphinx-nameko-theme==0.0.3
-sphinx_bootstrap_theme=="0.8.1"
+sphinx_bootstrap_theme==0.8.1
