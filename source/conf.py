@@ -56,7 +56,7 @@ autosectionlabel_prefix_document = True
 # region [HTML_Output_Settings]
 
 
-html_theme = 'basic'
+html_theme = 'bootstrap'
 html_theme_options = {}
 
 if html_theme == "bootstrap":
