@@ -13,3 +13,4 @@ sphinx-issues==3.0.1
 sphinx-nameko-theme==0.0.3
 sphinx_bootstrap_theme==0.8.1
 sphinx-readable-theme==1.3.0
+sphinx-redactor-theme==0.0.1
