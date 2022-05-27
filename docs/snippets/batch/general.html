@@ -8,13 +8,14 @@
     <title>General Batch/cmd Snippets &#8212; Gid Knowledge Vault  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
     <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
@@ -309,195 +310,7 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-md-3">
-        <div id="sidebar" class="bs-sidenav" role="complementary"><li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="../../index.html">Site <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../colors/colors_index.html">Colors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../colors/special_color_palettes.html">Special Color Palettes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../colors/special_color_palettes.html#antistasi">Antistasi</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../colors/special_color_palettes.html#yellow">Yellow</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../colors/special_color_palettes.html#blue">Blue</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../colors/special_color_palettes.html#black">Black</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../colors/special_color_palettes.html#signal-colors">Signal Colors</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../colors/special_colors.html">Special Colors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../colors/special_colors.html#green">Green</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../colors/special_colors.html#danube-dragons">Danube Dragons</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../colors/special_colors.html#bundesheer">Bundesheer</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../file_templates/file_templates_index.html">File-Templates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../information/information_index.html">Information</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../information/information_index.html#python">Python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../information/python/apsw.html">APSW</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../information/python/apsw.html#install-apsw">install APSW</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../information/python/general.html">General Python Information</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../information/python/general.html#syntax">Syntax</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../information/python/general.html#classes">Classes</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../../information/python/general.html#class-property">Class-Property</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../scripts/scripts_index.html">Scripts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../scripts/scripts_index.html#powershell">Powershell</a><ul class="simple">
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="../snippets_index.html">Snippets</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#sqf">SQF</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../sqf/general.html">General SQF Snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../sqf/general.html#get-marker-position">Get Marker Position</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../sqf/general.html#get-all-marker-pos-to-clipboard-try">Get all Marker Pos to Clipboard (try)</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../sqf/general.html#better">better</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../sqf/general.html#worldsize">worldsize</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sqf/general.html#line-break">Line break</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sqf/general.html#to-clipboard">To Clipboard</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sqf/general.html#log">log</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sqf/general.html#what-is-attached-to-player">what is attached to player</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#python">Python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../python/general.html">General Python Snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../python/general.html#meta-programming">Meta-Programming</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#meta-classes">Meta-Classes</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../python/general.html#singleton">Singleton</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../python/general.html#prohibitive-singleton">Prohibitive Singleton</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../python/general.html#custom-builtins">custom-Builtins</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#dict">Dict</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../python/general.html#changeawaredict">ChangeAwareDict</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../python/general.html#unsorted">Unsorted</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#function-name-from-inside-function">Function name from inside function</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#get-current-python-interpreter-path">Get Current Python Interpreter Path</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#get-venv-folder-or-python-folder-if-not-in-venv">Get Venv Folder - or Python Folder if not in Venv</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#get-venv-scripts-folder-or-python-scripts-folder-if-not-in-venv">Get Venv Scripts Folder - or Python Scripts Folder if not in Venv</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#get-venv-site-packages-folder-or-python-site-packages-folder-if-not-in-venv">Get Venv site-packages Folder - or Python site-packages Folder if not in Venv</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#get-windows-path-as-list">Get windows PATH as list</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#all-loaded-modules-as-dict">all loaded modules as dict</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#all-stdlib-module-names">all stdlib module names</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#get-python-version">get python version</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#get-name-and-author-from-package">get name and author from package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#get-package-info">get package info</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../python/general.html#find-all-print-statements">find all print statements</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#powershell">Powershell</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../powershell/basics.html">Basic Powershell Snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../powershell/basics.html#variables">Variables</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../powershell/basics.html#assign-variable">Assign variable</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../powershell/basics.html#environment">Environment</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../powershell/basics.html#set-environment-variable">Set environment variable</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../powershell/basics.html#get-all-environment-variables">Get all environment variables</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../powershell/basics.html#calling">Calling</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../powershell/basics.html#call-operator">Call Operator</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../powershell/general.html">General Powershell Snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../powershell/general.html#get-all-local-git-repo-paths">Get all local Git Repo Paths</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../powershell/general.html#folder-of-script-itself">Folder of Script itself</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#git">Git</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../git/general.html">General Git Snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../git/general.html#unsorted">Unsorted</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../git/general.html#find-base-folder">Find Base Folder</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../git/general.html#branch-names">Branch names</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../git/general.html#options">options</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="../git/general.html#delete-branch">Delete Branch</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../git/general.html#locally">locally</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../git/general.html#id1">options</a></li>
-<li class="toctree-l6"><a class="reference internal" href="../git/general.html#remote">remote</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="../git/general.html#branch-info">Branch info</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../git/general.html#ascii-tree">ASCII Tree</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="../git/general.html#id2">options</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="../git/general.html#backup">Backup</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2 current"><a class="reference internal" href="../snippets_index.html#batch">Batch</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">General Batch/cmd Snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#get-clipboard-data">get clipboard data</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#bash">Bash</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../bash/general.html">General Bash Snippets</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#misc">Misc</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../misc/general.html">General Misc Snippets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../misc/general.html#date-and-time-regex-mostly-logs">Date and Time Regex (mostly logs)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-        </div>
-      </div>
-    <div class="body col-md-9 content" role="main">
+    <div class="body col-md-12 content" role="main">
       
   <section id="general-batch-cmd-snippets">
 <h1>General Batch/cmd Snippets<a class="headerlink" href="#general-batch-cmd-snippets" title="Permalink to this headline"></a></h1>
