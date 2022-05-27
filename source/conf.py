@@ -29,8 +29,7 @@ extensions = ["myst_parser",
               'sphinxcontrib.images',
               "sphinxcontrib.fulltoc",
               "sphinx.ext.githubpages",
-              #   'sphinx_copybutton',
-              "sphinx_design",
+              'sphinx_copybutton',
               'sphinx.ext.autosectionlabel']
 
 
@@ -39,7 +38,7 @@ templates_path = ['_templates']
 html_static_path = ['_static']
 
 
-exclude_patterns = ["available_label.json"]
+exclude_patterns = []
 
 
 # get available styles via `pygmentize -L styles`
@@ -71,9 +70,5 @@ html_permalinks_icon = ""
 html_show_sourcelink = False
 html_show_sphinx = False
 
-html_sidebars = {
-    '**': [
-        'globaltoc.html'
-    ]
-}
+
 # endregion[HTML_Output_Settings]
