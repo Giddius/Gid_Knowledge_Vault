@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>General Python Snippets</title>
+    
+
+    <link rel="stylesheet" href="../../_static/css/redactor.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../_static/css/redactor.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+    
+    
+    <link rel="index" title="Index" href="../../genindex.html"/>
+    <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Gid Knowledge Vault  documentation" href="../../index.html"/>
+    <link rel="up" title="Snippets" href="../snippets_index.html"/>
+    <link rel="next" title="Basic Powershell Snippets" href="../powershell/basics.html"/>
+    <link rel="prev" title="General SQF Snippets" href="../sqf/general.html"/> 
+</head>
+
+<body role="document">
+     
+
+    
+<a href="#" id="js-navigation-toggle" class="navigation-toggle">
+    <i class="mdi mdi-menu"></i><i class="mdi mdi-close"></i>
+</a>
+
+<section class="site-sidebar">
+
+<nav>
+
+
+    <a href="../../index.html" class="branding-link">
+    
+    
+    
+        <img src="../../_static/main_logo.png" class="logo" />
+    
+    
+        
+        
+    
+    </a>
+
+    
+<section role="search">
+    <form action="../../search.html" method="get" class="site-searchform">
+        <input type="text" name="q" placeholder="Search docs" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+</section>
+
+
+
+    <section class="site-nav">
+    
+    
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../colors/colors_index.html">Colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../file_templates/file_templates_index.html">File-Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../information/information_index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/scripts_index.html">Scripts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../snippets_index.html">Snippets</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#sqf">SQF</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../snippets_index.html#python">Python</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">General Python Snippets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#meta-programming">Meta-Programming</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#meta-classes">Meta-Classes</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#singleton">Singleton</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#prohibitive-singleton">Prohibitive Singleton</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-builtins">custom-Builtins</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#dict">Dict</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#changeawaredict">ChangeAwareDict</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#unsorted">Unsorted</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#function-name-from-inside-function">Function name from inside function</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-current-python-interpreter-path">Get Current Python Interpreter Path</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-venv-folder-or-python-folder-if-not-in-venv">Get Venv Folder - or Python Folder if not in Venv</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-venv-scripts-folder-or-python-scripts-folder-if-not-in-venv">Get Venv Scripts Folder - or Python Scripts Folder if not in Venv</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-venv-site-packages-folder-or-python-site-packages-folder-if-not-in-venv">Get Venv site-packages Folder - or Python site-packages Folder if not in Venv</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-windows-path-as-list">Get windows PATH as list</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#all-loaded-modules-as-dict">all loaded modules as dict</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#all-stdlib-module-names">all stdlib module names</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-python-version">get python version</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-name-and-author-from-package">get name and author from package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-package-info">get package info</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#find-all-print-statements">find all print statements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#powershell">Powershell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#git">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#batch">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#bash">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#misc">Misc</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </section>
+
+</nav>
+
+</section>
+
+    <main class="site-main" role="main">
+        
+
+
+
+
+
+
+
+
+
+
+
+<nav class="site-breadcrumbs">
+    <ul>
+    
+        <li>
+            <a href="../../index.html">Docs</a> /
+        </li>
+        
+        <li>
+            <a href="../snippets_index.html">Snippets</a> /
+        </li>
+        
+        <li class="site-breadcrumbs__leaf">General Python Snippets</li>
+    
+    </ul>
+</nav>
+        <section class="site-content">
+            <div class="container">
+                
+  <section id="general-python-snippets">
+<h1>General Python Snippets<a class="headerlink" href="#general-python-snippets" title="Permalink to this headline"></a></h1>
+<section id="meta-programming">
+<h2>Meta-Programming<a class="headerlink" href="#meta-programming" title="Permalink to this headline"></a></h2>
+<section id="meta-classes">
+<h3>Meta-Classes<a class="headerlink" href="#meta-classes" title="Permalink to this headline"></a></h3>
+<section id="singleton">
+<h4>Singleton<a class="headerlink" href="#singleton" title="Permalink to this headline"></a></h4>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SingletonMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+    <span class="n">_instance</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">cls</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">SingletonMeta</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="prohibitive-singleton">
+<h4>Prohibitive Singleton<a class="headerlink" href="#prohibitive-singleton" title="Permalink to this headline"></a></h4>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ProhibitiveSingletonMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+    <span class="n">_instance</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There can only be one instance of </span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ProhibitiveSingletonMeta</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="custom-builtins">
+<h2>custom-Builtins<a class="headerlink" href="#custom-builtins" title="Permalink to this headline"></a></h2>
+<section id="dict">
+<h3>Dict<a class="headerlink" href="#dict" title="Permalink to this headline"></a></h3>
+<section id="changeawaredict">
+<h4>ChangeAwareDict<a class="headerlink" href="#changeawaredict" title="Permalink to this headline"></a></h4>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ChangeAwareDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">changed_listeners</span><span class="p">:</span> <span class="nb">set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">connect_to_change_signal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">changed_listeners</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">emit_changed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">changed_listeners</span><span class="p">:</span>
+            <span class="n">target</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emit_changed</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="unsorted">
+<h2>Unsorted<a class="headerlink" href="#unsorted" title="Permalink to this headline"></a></h2>
+<section id="function-name-from-inside-function">
+<h3>Function name from inside function<a class="headerlink" href="#function-name-from-inside-function" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">_getframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+</pre></div>
+</div>
+</section>
+<section id="get-current-python-interpreter-path">
+<h3>Get Current Python Interpreter Path<a class="headerlink" href="#get-current-python-interpreter-path" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span>
+</pre></div>
+</div>
+</section>
+<section id="get-venv-folder-or-python-folder-if-not-in-venv">
+<h3>Get Venv Folder - or Python Folder if not in Venv<a class="headerlink" href="#get-venv-folder-or-python-folder-if-not-in-venv" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">exec_prefix</span>
+</pre></div>
+</div>
+</section>
+<section id="get-venv-scripts-folder-or-python-scripts-folder-if-not-in-venv">
+<h3>Get Venv Scripts Folder - or Python Scripts Folder if not in Venv<a class="headerlink" href="#get-venv-scripts-folder-or-python-scripts-folder-if-not-in-venv" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_path</span>
+</pre></div>
+</div>
+</section>
+<section id="get-venv-site-packages-folder-or-python-site-packages-folder-if-not-in-venv">
+<h3>Get Venv site-packages Folder - or Python site-packages Folder if not in Venv<a class="headerlink" href="#get-venv-site-packages-folder-or-python-site-packages-folder-if-not-in-venv" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;purelib&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-windows-path-as-list">
+<h3>Get windows PATH as list<a class="headerlink" href="#get-windows-path-as-list" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">get_exec_path</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="all-loaded-modules-as-dict">
+<h3>all loaded modules as dict<a class="headerlink" href="#all-loaded-modules-as-dict" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+</pre></div>
+</div>
+</section>
+<section id="all-stdlib-module-names">
+<h3>all stdlib module names<a class="headerlink" href="#all-stdlib-module-names" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdlib_module_names</span>
+
+</pre></div>
+</div>
+</section>
+<section id="get-python-version">
+<h3>get python version<a class="headerlink" href="#get-python-version" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">major</span><span class="p">,</span> <span class="n">minor</span><span class="p">,</span> <span class="n">micro</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span>
+<span class="n">version_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">major</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">minor</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">micro</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="get-name-and-author-from-package">
+<h3>get name and author from package<a class="headerlink" href="#get-name-and-author-from-package" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">importlib.metadata</span> <span class="kn">import</span> <span class="n">metadata</span>
+
+<span class="n">APP_NAME</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+<span class="n">AUTHOR_NAME</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;author&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-package-info">
+<h3>get package info<a class="headerlink" href="#get-package-info" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_package_info</span><span class="p">(</span><span class="n">package_name</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://pypi.python.org/pypi/</span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2">/json&quot;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
+        <span class="c1"># TODO: Custom ERROR</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unable to get package info for package &#39;</span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="find-all-print-statements">
+<h3>find all print statements<a class="headerlink" href="#find-all-print-statements" title="Permalink to this headline"></a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="nd">@attr</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">auto_attribs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">auto_detect</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kw_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">FoundPrintStmt</span><span class="p">:</span>
+    <span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="n">Path</span><span class="p">)</span>
+    <span class="n">line_number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+    <span class="n">line</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">(</span><span class="n">converter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+    <span class="n">match</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="o">=</span> <span class="n">attr</span><span class="o">.</span><span class="n">ib</span><span class="p">()</span>
+
+    <span class="nd">@cached_property</span>
+    <span class="k">def</span> <span class="nf">matched_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;stmt&#39;</span><span class="p">)</span>
+
+    <span class="nd">@cached_property</span>
+    <span class="k">def</span> <span class="nf">pretty_line</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">mod_line</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">line_number</span><span class="si">}</span><span class="s2">|| </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mod_line</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">line</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">line_number</span><span class="p">)))</span>
+
+        <span class="n">indicator_chars</span> <span class="o">=</span> <span class="p">(</span><span class="n">cycle</span><span class="p">(</span><span class="s2">&quot;╳~&quot;</span><span class="p">),</span> <span class="n">cycle</span><span class="p">(</span><span class="s2">&quot;╳~&quot;</span><span class="p">))</span>
+        <span class="n">indicator_string_top</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">indicator_chars</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matched_text</span><span class="p">)))</span>
+        <span class="n">indicator_string_bottom</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">indicator_chars</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matched_text</span><span class="p">)))</span>
+        <span class="n">top_line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s1">&#39;stmt&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">line_number</span><span class="p">))</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">+</span> <span class="n">indicator_string_top</span>
+        <span class="n">bottom_line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s1">&#39;stmt&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">line_number</span><span class="p">))</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">+</span> <span class="n">indicator_string_bottom</span>
+
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">top_line</span><span class="p">,</span> <span class="n">mod_line</span><span class="p">,</span> <span class="n">bottom_line</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">attr</span><span class="o">.</span><span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">|</span> <span class="p">{</span><span class="s1">&#39;matched_text&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">matched_text</span><span class="p">,</span> <span class="s1">&#39;pretty_line&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pretty_line</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">find_print_stmts</span><span class="p">(</span><span class="n">in_path</span><span class="p">):</span>
+    <span class="n">print_regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?:\s|^)(?P&lt;stmt&gt;(print|pprint|ic)\(.*\))&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_find_print_stmts_in_file</span><span class="p">(</span><span class="n">in_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+        <span class="n">line_no</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">with</span> <span class="n">in_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">line_no</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">match</span> <span class="o">=</span> <span class="n">print_regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">yield</span> <span class="n">FoundPrintStmt</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">in_file</span><span class="p">,</span> <span class="n">line_number</span><span class="o">=</span><span class="n">line_no</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="n">line</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="n">match</span><span class="p">)</span>
+
+    <span class="n">in_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">in_path</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">in_path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">in_path</span><span class="o">.</span><span class="n">suffix</span> <span class="o">!=</span> <span class="s1">&#39;.py&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;can only be used with &quot;.py&quot; files, not </span><span class="si">{</span><span class="n">in_path</span><span class="o">.</span><span class="n">suffix</span><span class="si">!r}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">yield from</span> <span class="n">_find_print_stmts_in_file</span><span class="p">(</span><span class="n">in_path</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">folderlist</span><span class="p">,</span> <span class="n">filelist</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">in_path</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">_file</span><span class="p">)</span> <span class="k">for</span> <span class="n">_file</span> <span class="ow">in</span> <span class="n">filelist</span> <span class="k">if</span> <span class="n">_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="o">&gt;=</span> <span class="mi">10_485_760</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">yield from</span> <span class="n">_find_print_stmts_in_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            </div>
+
+        </section>
+
+        
+            <nav class="site-bottom-navigation" role="navigation">
+            
+                <a href="../powershell/basics.html" class="btn btn--primary btn--next right"
+                    title="Basic Powershell Snippets" accesskey="n">
+                    Next
+                </a>
+            
+            
+                <a href="../sqf/general.html" class="btn btn--primary btn--prev"
+                    title="General SQF Snippets" accesskey="p">
+                    Previous
+                </a>
+            
+            </nav>
+        
+
+        
+            <div class="source-link">
+            
+                
+            
+            </div>
+        
+
+
+
+    </main>
+
+    <footer class="site-footer">
+<div class="container">
+
+    <div role="contentinfo">
+        <p>
+                &copy; Copyright 2022, Giddi.
+            Last updated on 2022/May/27.
+        </p>
+    </div> 
+
+</div>
+</footer>
+
+    
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../None"></script>
+    <script type="text/javascript" src="../../_static/js/theme-min.js"></script> 
+</body>
+</html>

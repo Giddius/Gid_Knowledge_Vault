@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>Basic Powershell Snippets</title>
+    
+
+    <link rel="stylesheet" href="../../_static/css/redactor.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../_static/css/redactor.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+    
+    
+    <link rel="index" title="Index" href="../../genindex.html"/>
+    <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Gid Knowledge Vault  documentation" href="../../index.html"/>
+    <link rel="up" title="Snippets" href="../snippets_index.html"/>
+    <link rel="next" title="General Powershell Snippets" href="general.html"/>
+    <link rel="prev" title="General Python Snippets" href="../python/general.html"/> 
+</head>
+
+<body role="document">
+     
+
+    
+<a href="#" id="js-navigation-toggle" class="navigation-toggle">
+    <i class="mdi mdi-menu"></i><i class="mdi mdi-close"></i>
+</a>
+
+<section class="site-sidebar">
+
+<nav>
+
+
+    <a href="../../index.html" class="branding-link">
+    
+    
+    
+        <img src="../../_static/main_logo.png" class="logo" />
+    
+    
+        
+        
+    
+    </a>
+
+    
+<section role="search">
+    <form action="../../search.html" method="get" class="site-searchform">
+        <input type="text" name="q" placeholder="Search docs" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+</section>
+
+
+
+    <section class="site-nav">
+    
+    
+        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../colors/colors_index.html">Colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../file_templates/file_templates_index.html">File-Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../information/information_index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/scripts_index.html">Scripts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../snippets_index.html">Snippets</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#sqf">SQF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#python">Python</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../snippets_index.html#powershell">Powershell</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Basic Powershell Snippets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#variables">Variables</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#assign-variable">Assign variable</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#environment">Environment</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#set-environment-variable">Set environment variable</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#get-all-environment-variables">Get all environment variables</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#calling">Calling</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#call-operator">Call Operator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="general.html">General Powershell Snippets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#git">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#batch">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#bash">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#misc">Misc</a></li>
+</ul>
+</li>
+</ul>
+
+    
+    </section>
+
+</nav>
+
+</section>
+
+    <main class="site-main" role="main">
+        
+
+
+
+
+
+
+
+
+
+
+
+<nav class="site-breadcrumbs">
+    <ul>
+    
+        <li>
+            <a href="../../index.html">Docs</a> /
+        </li>
+        
+        <li>
+            <a href="../snippets_index.html">Snippets</a> /
+        </li>
+        
+        <li class="site-breadcrumbs__leaf">Basic Powershell Snippets</li>
+    
+    </ul>
+</nav>
+        <section class="site-content">
+            <div class="container">
+                
+  <section id="basic-powershell-snippets">
+<h1>Basic Powershell Snippets<a class="headerlink" href="#basic-powershell-snippets" title="Permalink to this headline"></a></h1>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline"></a></h2>
+<section id="assign-variable">
+<h3>Assign variable<a class="headerlink" href="#assign-variable" title="Permalink to this headline"></a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$var_name</span> <span class="p">=</span> <span class="s2">&quot;this&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this headline"></a></h2>
+<section id="set-environment-variable">
+<h3>Set environment variable<a class="headerlink" href="#set-environment-variable" title="Permalink to this headline"></a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$env:VAR_NAME</span> <span class="p">=</span> <span class="s1">&#39;variable&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="get-all-environment-variables">
+<h3>Get all environment variables<a class="headerlink" href="#get-all-environment-variables" title="Permalink to this headline"></a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">dir </span><span class="n">env</span><span class="p">:</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="calling">
+<h2>Calling<a class="headerlink" href="#calling" title="Permalink to this headline"></a></h2>
+<section id="call-operator">
+<h3>Call Operator<a class="headerlink" href="#call-operator" title="Permalink to this headline"></a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">&amp;</span> <span class="s1">&#39;c:\Path\To\target.exe&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            </div>
+
+        </section>
+
+        
+            <nav class="site-bottom-navigation" role="navigation">
+            
+                <a href="general.html" class="btn btn--primary btn--next right"
+                    title="General Powershell Snippets" accesskey="n">
+                    Next
+                </a>
+            
+            
+                <a href="../python/general.html" class="btn btn--primary btn--prev"
+                    title="General Python Snippets" accesskey="p">
+                    Previous
+                </a>
+            
+            </nav>
+        
+
+        
+            <div class="source-link">
+            
+                
+            
+            </div>
+        
+
+
+
+    </main>
+
+    <footer class="site-footer">
+<div class="container">
+
+    <div role="contentinfo">
+        <p>
+                &copy; Copyright 2022, Giddi.
+            Last updated on 2022/May/27.
+        </p>
+    </div> 
+
+</div>
+</footer>
+
+    
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="../../None"></script>
+    <script type="text/javascript" src="../../_static/js/theme-min.js"></script> 
+</body>
+</html>
