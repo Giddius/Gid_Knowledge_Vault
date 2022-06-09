@@ -7,7 +7,7 @@ import sys
 import time
 
 sys.path.insert(0, os.path.abspath('.'))
-import sphinx_bootstrap_theme
+import sphinx_redactor_theme
 # endregion [Boilerplate]
 
 # region [Project_Info]
@@ -29,8 +29,7 @@ extensions = ["myst_parser",
               'sphinxcontrib.images',
               "sphinxcontrib.fulltoc",
               "sphinx.ext.githubpages",
-              #   'sphinx_copybutton',
-              "sphinx_design",
+              'sphinx_copybutton',
               'sphinx.ext.autosectionlabel']
 
 
@@ -39,11 +38,11 @@ templates_path = ['_templates']
 html_static_path = ['_static']
 
 
-exclude_patterns = ["available_label.json", "extras/*"]
+exclude_patterns = []
 
 
 # get available styles via `pygmentize -L styles`
-pygments_style = "dracula"
+pygments_style = "solarized-light"
 
 # endregion[Sphinx_Settings]
 
@@ -56,14 +55,9 @@ autosectionlabel_prefix_document = True
 # region [HTML_Output_Settings]
 
 
-html_theme = 'basic'
+html_theme = 'sphinx_redactor_theme'
+html_theme_path = [sphinx_redactor_theme.get_html_theme_path()]
 html_theme_options = {}
-
-if html_theme == "bootstrap":
-
-    html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
-
-    html_theme_options["bootswatch_theme"] = "Slate"
 
 
 html_last_updated_fmt = "%Y/%B/%d"
@@ -73,7 +67,9 @@ html_show_sphinx = False
 
 html_sidebars = {
     '**': [
-        'globaltoc.html'
+        'globaltoc.html',
+        'searchbox.html',
     ]
 }
+
 # endregion[HTML_Output_Settings]
