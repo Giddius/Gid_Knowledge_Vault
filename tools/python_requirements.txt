@@ -13,3 +13,4 @@ sphinx-nameko-theme
 sphinx_bootstrap_theme
 sphinx-readable-theme
 sphinx-redactor-theme
+pygments-style-tomorrow
