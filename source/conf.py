@@ -7,7 +7,7 @@ import sys
 import time
 
 sys.path.insert(0, os.path.abspath('.'))
-import sphinx_redactor_theme
+
 # endregion [Boilerplate]
 
 # region [Project_Info]
@@ -26,7 +26,6 @@ html_favicon = "_images/main_favicon.png"
 
 extensions = ["myst_parser",
               'sphinxcontrib.mermaid',
-              'sphinxcontrib.images',
               "sphinxcontrib.fulltoc",
               "sphinx.ext.githubpages",
               'sphinx_copybutton',
@@ -36,13 +35,15 @@ extensions = ["myst_parser",
 templates_path = ['_templates']
 
 html_static_path = ['_static']
-
+html_css_files = [
+    'css/extra_styling.css',
+]
 
 exclude_patterns = []
 
 
 # get available styles via `pygmentize -L styles`
-pygments_style = "solarized-light"
+pygments_style = "tomorrow-night-eighties"
 
 # endregion[Sphinx_Settings]
 
@@ -50,13 +51,14 @@ pygments_style = "solarized-light"
 
 mermaid_params = ['--theme', 'forest', '--width', '2000', '--backgroundColor', 'transparent']
 autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 1
 # endregion[Extension_Settings]
 
 # region [HTML_Output_Settings]
 
 
-html_theme = 'sphinx_redactor_theme'
-html_theme_path = [sphinx_redactor_theme.get_html_theme_path()]
+html_theme = 'alabaster'
+html_theme_path = []
 html_theme_options = {}
 
 
@@ -72,4 +74,6 @@ html_sidebars = {
     ]
 }
 
+
+html_context = {"base_css_name": html_theme}
 # endregion[HTML_Output_Settings]
