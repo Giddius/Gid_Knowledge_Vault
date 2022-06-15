@@ -4,9 +4,8 @@ Gid Knowledge Vault
 
 
 
-.. thumbnail:: /_images/main_logo.png
-   :width: 500px
-   :show_caption: False
+.. image:: /_images/main_logo.png
+   :scale: 50 %
    :align: center
 
 

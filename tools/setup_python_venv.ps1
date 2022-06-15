@@ -37,7 +37,7 @@ Write-Host $(`
     -ForegroundColor Yellow
 
 & $venvExecutable -m pip install -r $requirementsFile
-
+if ($? -eq $False) {exit}
 Write-Host $(`
     "`n"+`
     "Installing DEV Dependencies from " +`
@@ -46,7 +46,7 @@ Write-Host $(`
     -ForegroundColor Yellow
 
 & $venvExecutable -m pip install -r $requirementsFileDev
-
+if ($? -eq $False) {exit}
 
 
 Write-Host $(`
