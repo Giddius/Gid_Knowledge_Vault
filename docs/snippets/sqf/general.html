@@ -1,74 +1,140 @@
+
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-    <meta charset="utf-8">
-    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    
-    <title>General SQF Snippets</title>
-    
+    <title>General SQF Snippets &#8212; Gid Knowledge Vault  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/extra_styling.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../../_static/main_favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="General Python Snippets" href="../python/general.html" />
+    <link rel="prev" title="Snippets" href="../snippets_index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-    <link rel="stylesheet" href="../../_static/css/redactor.css" type="text/css" />
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
-    <link rel="stylesheet" href="../../_static/css/redactor.css" type="text/css" />
-    
-    <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-    
-    <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
-    
-    
-    <link rel="index" title="Index" href="../../genindex.html"/>
-    <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Gid Knowledge Vault  documentation" href="../../index.html"/>
-    <link rel="up" title="Snippets" href="../snippets_index.html"/>
-    <link rel="next" title="General Python Snippets" href="../python/general.html"/>
-    <link rel="prev" title="Snippets" href="../snippets_index.html"/> 
-</head>
+  </head><body>
+  
 
-<body role="document">
-     
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
 
-    
-<a href="#" id="js-navigation-toggle" class="navigation-toggle">
-    <i class="mdi mdi-menu"></i><i class="mdi mdi-close"></i>
-</a>
+          <div class="body" role="main">
+            
+  <section id="general-sqf-snippets">
+<h1>General SQF Snippets<a class="headerlink" href="#general-sqf-snippets" title="Permalink to this headline"></a></h1>
+<section id="get-marker-position">
+<h2>Get Marker Position<a class="headerlink" href="#get-marker-position" title="Permalink to this headline"></a></h2>
+<div class="highlight-CoffeeScript notranslate"><div class="highlight"><pre><span></span><span class="nx">outposts</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="nx">resourcesX</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="nx">factories</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="nx">airportsX</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="nx">seaports</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="nx">citiesX</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="get-all-marker-pos-to-clipboard-try">
+<h3>Get all Marker Pos to Clipboard (try)<a class="headerlink" href="#get-all-marker-pos-to-clipboard-try" title="Permalink to this headline"></a></h3>
+<div class="highlight-CoffeeScript notranslate"><div class="highlight"><pre><span></span><span class="nv">_br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">toString</span><span class="w"> </span><span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
+<span class="nv">_outposts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">outposts</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nv">_resourcesX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">resourcesX</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nv">_factories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">factories</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nv">_airportsX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">airportsX</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nv">_seaports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">seaports</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="nv">_citiesX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">citiesX</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getMarkerPos</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 
-<section class="site-sidebar">
+<span class="nv">_all_outposts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">outposts</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_outposts</span><span class="p">;</span><span class="w"></span>
+<span class="nv">_all_resourcesX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">resourcesX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_resourcesX</span><span class="p">;</span><span class="w"></span>
+<span class="nv">_all_factories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">factories</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_factories</span><span class="p">;</span><span class="w"></span>
+<span class="nv">_all_airportsX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">airportsX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_airportsX</span><span class="p">;</span><span class="w"></span>
+<span class="nv">_all_seaports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">seaports</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_seaports</span><span class="p">;</span><span class="w"></span>
+<span class="nv">_all_citiesX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">citiesX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_citiesX</span><span class="p">;</span><span class="w"></span>
 
-<nav>
-
-
-    <a href="../../index.html" class="branding-link">
-    
-    
-    
-        <img src="../../_static/main_logo.png" class="logo" />
-    
-    
-        
-        
-    
-    </a>
-
-    
-<section role="search">
-    <form action="../../search.html" method="get" class="site-searchform">
-        <input type="text" name="q" placeholder="Search docs" />
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
+<span class="nv">_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;outposts: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="nx">_all_outposts</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;resourcesX: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="nx">_all_resourcesX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;factories: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="nx">_all_factories</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;airportsX: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="nx">_all_airportsX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;seaports: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="nx">_all_seaports</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;citiesX: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_br</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="nx">_all_citiesX</span><span class="p">;</span><span class="w"></span>
+<span class="nv">_all_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="nx">_out</span><span class="p">;</span><span class="w"></span>
+<span class="nx">copyToClipboard</span><span class="w"> </span><span class="nx">_all_out</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<section id="better">
+<h4>better<a class="headerlink" href="#better" title="Permalink to this headline"></a></h4>
+<div class="highlight-CoffeeScript notranslate"><div class="highlight"><pre><span></span><span class="nx">private</span><span class="w"> </span><span class="nv">_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="nv">_out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">_out</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="nx">_x</span><span class="c1">#0) + &quot;:&quot; + endl + str (_x apply {[_x, getMarkerPos _x]}) + endl + endl)</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="nx">forEach</span><span class="w"> </span><span class="p">[</span><span class="nx">outposts</span><span class="p">,</span><span class="w"> </span><span class="nx">resourcesX</span><span class="p">,</span><span class="w"> </span><span class="nx">factories</span><span class="p">,</span><span class="w"> </span><span class="nx">airportsX</span><span class="p">,</span><span class="w"> </span><span class="nx">seaports</span><span class="p">,</span><span class="w"> </span><span class="nx">citiesX</span><span class="p">];</span><span class="w"></span>
+<span class="nx">copyToClipboard</span><span class="w"> </span><span class="nx">_out</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="worldsize">
+<h2>worldsize<a class="headerlink" href="#worldsize" title="Permalink to this headline"></a></h2>
+<div class="highlight-CoffeeScript notranslate"><div class="highlight"><pre><span></span><span class="nx">copyToClipboard</span><span class="w"> </span><span class="nx">worldsize</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="line-break">
+<h2>Line break<a class="headerlink" href="#line-break" title="Permalink to this headline"></a></h2>
+<div class="highlight-CoffeeScript notranslate"><div class="highlight"><pre><span></span><span class="nv">_br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">toString</span><span class="w"> </span><span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">10</span><span class="p">];</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="to-clipboard">
+<h2>To Clipboard<a class="headerlink" href="#to-clipboard" title="Permalink to this headline"></a></h2>
+<div class="highlight-CoffeeScript notranslate"><div class="highlight"><pre><span></span><span class="nv">_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Line 1&quot;</span><span class="w"></span>
+<span class="nx">copyToClipboard</span><span class="w"> </span><span class="nx">_string</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="log">
+<h2>log<a class="headerlink" href="#log" title="Permalink to this headline"></a></h2>
+<div class="highlight-CoffeeScript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s">&quot;&lt;message&gt;&quot;</span><span class="p">]</span><span class="w"> </span><span class="nx">remoteExec</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;diag_log&quot;</span><span class="p">];</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="what-is-attached-to-player">
+<h2>what is attached to player<a class="headerlink" href="#what-is-attached-to-player" title="Permalink to this headline"></a></h2>
+<div class="highlight-CoffeeScript notranslate"><div class="highlight"><pre><span></span><span class="nx">attachedObjects</span><span class="w"> </span><span class="nx">cursorObject</span><span class="w"> </span><span class="nx">apply</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">typeof</span><span class="w"> </span><span class="nx">_x</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition-options admonition">
+<p class="admonition-title">options</p>
+<p>instead of <cite>cursorObject</cite> -&gt; <cite>player</cite></p>
+</div>
+</section>
 </section>
 
 
-
-    <section class="site-nav">
-    
-    
-        <ul class="current">
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/main_logo.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../../index.html">Table of Contents</a></h3>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../colors/colors_index.html">Colors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../file_templates/file_templates_index.html">File-Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../information/information_index.html">Information</a></li>
@@ -102,193 +168,31 @@
 </li>
 </ul>
 
-    
-    </section>
-
-</nav>
-
-</section>
-
-    <main class="site-main" role="main">
-        
-
-
-
-
-
-
-
-
-
-
-
-<nav class="site-breadcrumbs">
-    <ul>
-    
-        <li>
-            <a href="../../index.html">Docs</a> /
-        </li>
-        
-        <li>
-            <a href="../snippets_index.html">Snippets</a> /
-        </li>
-        
-        <li class="site-breadcrumbs__leaf">General SQF Snippets</li>
-    
-    </ul>
-</nav>
-        <section class="site-content">
-            <div class="container">
-                
-  <section id="general-sqf-snippets">
-<h1>General SQF Snippets<a class="headerlink" href="#general-sqf-snippets" title="Permalink to this headline"></a></h1>
-<section id="get-marker-position">
-<h2>Get Marker Position<a class="headerlink" href="#get-marker-position" title="Permalink to this headline"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">outposts</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">}</span>
-<span class="n">resourcesX</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">}</span>
-<span class="n">factories</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">}</span>
-<span class="n">airportsX</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">}</span>
-<span class="n">seaports</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">}</span>
-<span class="n">citiesX</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">}</span>
-</pre></div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
 </div>
-<section id="get-all-marker-pos-to-clipboard-try">
-<h3>Get all Marker Pos to Clipboard (try)<a class="headerlink" href="#get-all-marker-pos-to-clipboard-try" title="Permalink to this headline"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_br</span> <span class="o">=</span> <span class="n">toString</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">10</span><span class="p">];</span>
-<span class="n">_outposts</span> <span class="o">=</span> <span class="n">outposts</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">};</span>
-<span class="n">_resourcesX</span> <span class="o">=</span> <span class="n">resourcesX</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">};</span>
-<span class="n">_factories</span> <span class="o">=</span> <span class="n">factories</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">};</span>
-<span class="n">_airportsX</span> <span class="o">=</span> <span class="n">airportsX</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">};</span>
-<span class="n">_seaports</span> <span class="o">=</span> <span class="n">seaports</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">};</span>
-<span class="n">_citiesX</span> <span class="o">=</span> <span class="n">citiesX</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">getMarkerPos</span> <span class="n">_x</span> <span class="p">};</span>
-
-<span class="n">_all_outposts</span> <span class="o">=</span> <span class="n">outposts</span> <span class="o">+</span> <span class="n">_outposts</span><span class="p">;</span>
-<span class="n">_all_resourcesX</span> <span class="o">=</span> <span class="n">resourcesX</span> <span class="o">+</span> <span class="n">_resourcesX</span><span class="p">;</span>
-<span class="n">_all_factories</span> <span class="o">=</span> <span class="n">factories</span> <span class="o">+</span> <span class="n">_factories</span><span class="p">;</span>
-<span class="n">_all_airportsX</span> <span class="o">=</span> <span class="n">airportsX</span> <span class="o">+</span> <span class="n">_airportsX</span><span class="p">;</span>
-<span class="n">_all_seaports</span> <span class="o">=</span> <span class="n">seaports</span> <span class="o">+</span> <span class="n">_seaports</span><span class="p">;</span>
-<span class="n">_all_citiesX</span> <span class="o">=</span> <span class="n">citiesX</span> <span class="o">+</span> <span class="n">_citiesX</span><span class="p">;</span>
-
-<span class="n">_out</span> <span class="o">=</span> <span class="s2">&quot;outposts: &quot;</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="nb">str</span> <span class="n">_all_outposts</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="s2">&quot;resourcesX: &quot;</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="nb">str</span> <span class="n">_all_resourcesX</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="s2">&quot;factories: &quot;</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="nb">str</span> <span class="n">_all_factories</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="s2">&quot;airportsX: &quot;</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="nb">str</span> <span class="n">_all_airportsX</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="s2">&quot;seaports: &quot;</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="nb">str</span> <span class="n">_all_seaports</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="s2">&quot;citiesX: &quot;</span> <span class="o">+</span> <span class="n">_br</span> <span class="o">+</span> <span class="nb">str</span> <span class="n">_all_citiesX</span><span class="p">;</span>
-<span class="n">_all_out</span> <span class="o">=</span> <span class="nb">str</span> <span class="n">_out</span><span class="p">;</span>
-<span class="n">copyToClipboard</span> <span class="n">_all_out</span><span class="p">;</span>
-</pre></div>
-</div>
-<section id="better">
-<h4>better<a class="headerlink" href="#better" title="Permalink to this headline"></a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">private</span> <span class="n">_out</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-<span class="p">{</span>
-    <span class="n">_out</span> <span class="o">=</span> <span class="n">_out</span> <span class="o">+</span> <span class="p">((</span><span class="n">_x</span><span class="c1">#0) + &quot;:&quot; + endl + str (_x apply {[_x, getMarkerPos _x]}) + endl + endl)</span>
-<span class="p">}</span> <span class="n">forEach</span> <span class="p">[</span><span class="n">outposts</span><span class="p">,</span> <span class="n">resourcesX</span><span class="p">,</span> <span class="n">factories</span><span class="p">,</span> <span class="n">airportsX</span><span class="p">,</span> <span class="n">seaports</span><span class="p">,</span> <span class="n">citiesX</span><span class="p">];</span>
-<span class="n">copyToClipboard</span> <span class="n">_out</span><span class="p">;</span>
-</pre></div>
-</div>
-</section>
-</section>
-</section>
-<section id="worldsize">
-<h2>worldsize<a class="headerlink" href="#worldsize" title="Permalink to this headline"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">copyToClipboard</span> <span class="n">worldsize</span>
-</pre></div>
-</div>
-</section>
-<section id="line-break">
-<h2>Line break<a class="headerlink" href="#line-break" title="Permalink to this headline"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_br</span> <span class="o">=</span> <span class="n">toString</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">10</span><span class="p">];</span>
-</pre></div>
-</div>
-</section>
-<section id="to-clipboard">
-<h2>To Clipboard<a class="headerlink" href="#to-clipboard" title="Permalink to this headline"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_string</span> <span class="o">=</span> <span class="s2">&quot;Line 1&quot;</span>
-<span class="n">copyToClipboard</span> <span class="n">_string</span><span class="p">;</span>
-</pre></div>
-</div>
-</section>
-<section id="log">
-<h2>log<a class="headerlink" href="#log" title="Permalink to this headline"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;&lt;message&gt;&quot;</span><span class="p">]</span> <span class="n">remoteExec</span> <span class="p">[</span><span class="s2">&quot;diag_log&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-</section>
-<section id="what-is-attached-to-player">
-<h2>what is attached to player<a class="headerlink" href="#what-is-attached-to-player" title="Permalink to this headline"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">attachedObjects</span> <span class="n">cursorObject</span> <span class="n">apply</span> <span class="p">{</span> <span class="n">typeof</span> <span class="n">_x</span> <span class="p">}</span>
-
-</pre></div>
-</div>
-<p>instead of <code class="docutils literal notranslate"><span class="pre">cursorObject</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">player</span></code></p>
-</section>
-</section>
-
-
-            </div>
-
-        </section>
-
-        
-            <nav class="site-bottom-navigation" role="navigation">
-            
-                <a href="../python/general.html" class="btn btn--primary btn--next right"
-                    title="General Python Snippets" accesskey="n">
-                    Next
-                </a>
-            
-            
-                <a href="../snippets_index.html" class="btn btn--primary btn--prev"
-                    title="Snippets" accesskey="p">
-                    Previous
-                </a>
-            
-            </nav>
-        
-
-        
-            <div class="source-link">
-            
-                
-            
-            </div>
-        
-
-
-
-    </main>
-
-    <footer class="site-footer">
-<div class="container">
-
-    <div role="contentinfo">
-        <p>
-                &copy; Copyright 2022, Giddi.
-            Last updated on 2022/May/27.
-        </p>
-    </div> 
-
-</div>
-</footer>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Giddi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
 
     
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
-        };
-    </script>
-    <script type="text/javascript" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
-    <script type="text/javascript" src="../../_static/copybutton.js"></script>
-    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
-    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-    <script type="text/javascript" src="../../None"></script>
-    <script type="text/javascript" src="../../_static/js/theme-min.js"></script> 
-</body>
+    
+  </body>
 </html>

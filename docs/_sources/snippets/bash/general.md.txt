@@ -1,1 +1,0 @@
-# General Bash Snippets
