@@ -10,3 +10,4 @@ Python
    :glob:
 
    /information/python/*
+   /information/python/libraries/libraries_index
