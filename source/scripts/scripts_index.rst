@@ -11,3 +11,4 @@ Powershell
    :glob:
 
    /scripts/powershell/*
+   /scripts/batch/*
