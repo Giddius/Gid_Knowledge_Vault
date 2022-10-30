@@ -9,11 +9,9 @@ Parse Python-like function signature
 
 .. admonition:: required packages
 
-   `PyParsing <https://pypi.org/project/pyparsing/>`_
+   * `PyParsing <https://pypi.org/project/pyparsing/>`_
 
-   .. code:: shell
 
-      pip install pyparsing
 
 .. code:: python
 

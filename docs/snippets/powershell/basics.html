@@ -74,6 +74,29 @@
 </pre></div>
 </div>
 </section>
+<section id="output-to-variable">
+<h3>Output to Variable<a class="headerlink" href="#output-to-variable" title="Permalink to this headline"></a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$outputVariable</span> <span class="p">=</span> <span class="p">((</span><span class="nv">$callCommand</span><span class="p">)</span> <span class="p">|</span> <span class="nb">Out-String</span><span class="p">).</span><span class="n">Trim</span><span class="p">()</span>
+</pre></div>
+</div>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h4>
+<div class="code-example docutils container">
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$rawBasePythonDir</span> <span class="p">=</span> <span class="p">((</span><span class="n">python</span> <span class="n">-c</span> <span class="s2">&quot;import sys;print(sys.base_prefix)&quot;</span><span class="p">)</span> <span class="p">|</span> <span class="nb">Out-String</span><span class="p">).</span><span class="n">Trim</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="path-handling">
+<h2>Path Handling<a class="headerlink" href="#path-handling" title="Permalink to this headline"></a></h2>
+<section id="string-to-path-object">
+<h3>String to Path-Object<a class="headerlink" href="#string-to-path-object" title="Permalink to this headline"></a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$pathObject</span> <span class="p">=</span> <span class="nb">Resolve-Path</span> <span class="nv">$stringPath</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -109,6 +132,14 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#calling">Calling</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#call-operator">Call Operator</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#output-to-variable">Output to Variable</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#path-handling">Path Handling</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#string-to-path-object">String to Path-Object</a></li>
 </ul>
 </li>
 </ul>
@@ -122,6 +153,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#misc">Misc</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/projects_index.html">Projects</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">

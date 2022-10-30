@@ -44,13 +44,28 @@
 <h1>General Powershell Snippets<a class="headerlink" href="#general-powershell-snippets" title="Permalink to this headline"></a></h1>
 <section id="get-all-local-git-repo-paths">
 <h2>Get all local Git Repo Paths<a class="headerlink" href="#get-all-local-git-repo-paths" title="Permalink to this headline"></a></h2>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Set-Location</span> <span class="n">-Path</span> <span class="n">D</span><span class="p">:\;</span> <span class="nb">Get-ChildItem</span> <span class="p">.</span> <span class="n">-Attributes</span> <span class="n">Directory</span><span class="p">+</span><span class="n">Hidden</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span> <span class="n">-Filter</span> <span class="s2">&quot;.git&quot;</span> <span class="n">-Recurse</span> <span class="p">|</span> <span class="p">%</span> <span class="p">{</span> <span class="nb">Write-Host</span> <span class="nv">$_</span><span class="p">.</span><span class="n">FullName</span> <span class="o">-replace</span><span class="s2">&quot;\\.git&quot;</span> <span class="p">}</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$i</span> <span class="k">in</span> <span class="p">(</span><span class="nb">gdr </span><span class="n">-PSProvider</span> <span class="s1">&#39;FileSystem&#39;</span><span class="p">)){</span>
+   <span class="nb">Set-Location</span> <span class="n">-Path</span> <span class="nv">$i</span><span class="p">.</span><span class="n">Root</span><span class="p">;</span>
+   <span class="nb">Get-ChildItem</span> <span class="p">.</span> <span class="n">-Attributes</span> <span class="n">Directory</span><span class="p">+</span><span class="n">Hidden</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span> <span class="n">-Filter</span> <span class="s2">&quot;.git&quot;</span> <span class="n">-Recurse</span> <span class="p">|</span> <span class="p">%</span> <span class="p">{</span> <span class="nb">Write-Host</span> <span class="nv">$_</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">FullName</span> <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="folder-of-script-itself">
 <h2>Folder of Script itself<a class="headerlink" href="#folder-of-script-itself" title="Permalink to this headline"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$PSScriptRoot</span>
+</pre></div>
+</div>
+</section>
+<section id="requires-admin">
+<h2>Requires Admin<a class="headerlink" href="#requires-admin" title="Permalink to this headline"></a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c">#Requires -RunAsAdministrator</span>
+</pre></div>
+</div>
+</section>
+<section id="get-all-hard-drives">
+<h2>Get all Hard-Drives<a class="headerlink" href="#get-all-hard-drives" title="Permalink to this headline"></a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">gdr </span><span class="n">-PSProvider</span> <span class="s1">&#39;FileSystem&#39;</span>
 </pre></div>
 </div>
 </section>
@@ -80,6 +95,8 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">General Powershell Snippets</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#get-all-local-git-repo-paths">Get all local Git Repo Paths</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#folder-of-script-itself">Folder of Script itself</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requires-admin">Requires Admin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-all-hard-drives">Get all Hard-Drives</a></li>
 </ul>
 </li>
 </ul>
@@ -90,6 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#misc">Misc</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/projects_index.html">Projects</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">

@@ -12,3 +12,4 @@ Powershell
 
    /scripts/powershell/*
    /scripts/batch/*
+   /scripts/python/*

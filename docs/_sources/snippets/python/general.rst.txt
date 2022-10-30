@@ -170,71 +170,72 @@ find all print statements
 
 .. admonition:: required packages
 
-   `attrs <https://pypi.org/project/attrs/>`_
+   * `attrs <https://pypi.org/project/attrs/>`_
 
-   .. code:: shell
-
-      pip install attrs
 
 .. code:: python
 
-   import attr
-
-   @attr.s(auto_attribs=True, auto_detect=True, kw_only=True, frozen=True)
-   class FoundPrintStmt:
-      file_path: Path = attr.ib(converter=Path)
-      line_number: int = attr.ib()
-      line: str = attr.ib(converter=lambda x: x.rstrip('\n'))
-      match: re.Match = attr.ib()
-
-      @cached_property
-      def matched_text(self):
-         return self.match.group('stmt')
-
-      @cached_property
-      def pretty_line(self):
-         mod_line = f"{self.line_number}|| {self.line}"
-         offset = len(mod_line) - (len(self.line) + len(str(self.line_number)))
-
-         indicator_chars = (cycle("╳~"), cycle("╳~"))
-         indicator_string_top = ''.join(next(indicator_chars[0]) for _ in range(len(self.matched_text)))
-         indicator_string_bottom = ''.join(next(indicator_chars[1]) for _ in range(len(self.matched_text)))
-         top_line = ' ' * (self.match.start('stmt') + len(str(self.line_number)) + offset) + indicator_string_top
-         bottom_line = ' ' * (self.match.start('stmt') + len(str(self.line_number)) + offset) + indicator_string_bottom
-
-         return '\n'.join([top_line, mod_line, bottom_line])
-
-      def as_dict(self):
-         return attr.asdict(self) | {'matched_text': self.matched_text, 'pretty_line': self.pretty_line}
+    import attr
+    from functools import cached_property
+    from itertools import cycle
+    from pathlib import Path
+    import re
 
 
-   def find_print_stmts(in_path):
-      print_regex = re.compile(r'(?:\s|^)(?P<stmt>(print|pprint|ic)\(.*\))')
+    @attr.s(auto_attribs=True, auto_detect=True, kw_only=True, frozen=True)
+    class FoundPrintStmt:
+        file_path: Path = attr.ib(converter=Path)
+        line_number: int = attr.ib()
+        line: str = attr.ib(converter=lambda x: x.rstrip('\n'))
+        match: re.Match = attr.ib()
 
-      def _find_print_stmts_in_file(in_file: Path):
-         line_no = 0
-         with in_file.open('r', encoding='utf-8') as f:
-               for line in f:
-                  line_no += 1
-                  line = line.strip('\n')
-                  if line.strip() == '':
-                     continue
-                  match = print_regex.search(line)
-                  if not match:
-                     continue
-                  yield FoundPrintStmt(file_path=in_file, line_number=line_no, line=line, match=match)
+        @cached_property
+        def matched_text(self):
+            return self.match.group('stmt')
 
-      in_path = Path(in_path)
+        @cached_property
+        def pretty_line(self):
+            mod_line = f"{self.line_number}|| {self.line}"
+            offset = len(mod_line) - (len(self.line) + len(str(self.line_number)))
 
-      if in_path.is_file():
-         if in_path.suffix != '.py':
-               raise TypeError(f'can only be used with ".py" files, not {in_path.suffix!r}')
-         yield from _find_print_stmts_in_file(in_path)
+            indicator_chars = (cycle("╳~"), cycle("╳~"))
+            indicator_string_top = ''.join(next(indicator_chars[0]) for _ in range(len(self.matched_text)))
+            indicator_string_bottom = ''.join(next(indicator_chars[1]) for _ in range(len(self.matched_text)))
+            top_line = ' ' * (self.match.start('stmt') + len(str(self.line_number)) + offset) + indicator_string_top
+            bottom_line = ' ' * (self.match.start('stmt') + len(str(self.line_number)) + offset) + indicator_string_bottom
 
-      else:
-         for dirname, folderlist, filelist in os.walk(in_path):
-               for file in (Path(dirname, _file) for _file in filelist if _file.endswith('.py')):
-                  if file.stat().st_size >= 10_485_760:
-                     continue
-                  yield from _find_print_stmts_in_file(file)
+            return '\n'.join([top_line, mod_line, bottom_line])
 
+        def as_dict(self):
+            return attr.asdict(self) | {'matched_text': self.matched_text, 'pretty_line': self.pretty_line}
+
+
+    def find_print_stmts(in_path):
+        print_regex = re.compile(r'(?:\s|^)(?P<stmt>(print|pprint|ic)\(.*\))')
+
+        def _find_print_stmts_in_file(in_file: Path):
+            line_no = 0
+            with in_file.open('r', encoding='utf-8') as f:
+                for line in f:
+                    line_no += 1
+                    line = line.strip('\n')
+                    if line.strip() == '':
+                        continue
+                    match = print_regex.search(line)
+                    if not match:
+                        continue
+                    yield FoundPrintStmt(file_path=in_file, line_number=line_no, line=line, match=match)
+
+        in_path = Path(in_path)
+
+        if in_path.is_file():
+            if in_path.suffix != '.py':
+                raise TypeError(f'can only be used with ".py" files, not {in_path.suffix!r}')
+            yield from _find_print_stmts_in_file(in_path)
+
+        else:
+            for dirname, folderlist, filelist in os.walk(in_path):
+                for file in (Path(dirname, _file) for _file in filelist if _file.endswith('.py')):
+                    if file.stat().st_size >= 10_485_760:
+                        continue
+                    yield from _find_print_stmts_in_file(file)

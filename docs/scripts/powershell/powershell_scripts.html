@@ -42,6 +42,16 @@
             
   <section id="powershell-scripts">
 <h1>Powershell Scripts<a class="headerlink" href="#powershell-scripts" title="Permalink to this headline"></a></h1>
+<section id="list-all-git-repos">
+<h2>list_all_git_repos<a class="headerlink" href="#list-all-git-repos" title="Permalink to this headline"></a></h2>
+<p><a class="reference download internal" download="" href="../../_downloads/adb074a067f8880d6ef07986e3cbc9a0/list_all_git_repos.ps1"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">File</span></code></a></p>
+<div class="highlight-Powershell notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$i</span> <span class="k">in</span> <span class="p">(</span><span class="nb">gdr </span><span class="n">-PSProvider</span> <span class="s1">&#39;FileSystem&#39;</span><span class="p">)){</span>
+    <span class="nb">Set-Location</span> <span class="n">-Path</span> <span class="nv">$i</span><span class="p">.</span><span class="n">Root</span><span class="p">;</span>
+    <span class="nb">Get-ChildItem</span> <span class="p">.</span> <span class="n">-Attributes</span> <span class="n">Directory</span><span class="p">+</span><span class="n">Hidden</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span> <span class="n">-Filter</span> <span class="s2">&quot;.git&quot;</span> <span class="n">-Recurse</span> <span class="p">|</span> <span class="p">%</span> <span class="p">{</span> <span class="nb">Write-Host</span> <span class="nv">$_</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">FullName</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -61,13 +71,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../information/information_index.html">Information</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../scripts_index.html">Scripts</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../scripts_index.html#powershell">Powershell</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Powershell Scripts</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Powershell Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#list-all-git-repos">list_all_git_repos</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../batch/batch_scripts.html">Batch Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../python/python_scripts.html">Python Scripts</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../snippets/snippets_index.html">Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/projects_index.html">Projects</a></li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
