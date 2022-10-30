@@ -1,4 +1,4 @@
-antistasi_sqf_tools==0.5.15
+antistasi_sqf_tools==0.5.16
 sphinx
 sphinxcontrib-mermaid
 groundwork-sphinx-theme
