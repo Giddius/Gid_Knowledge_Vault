@@ -1,0 +1,15 @@
+{{ make_name_pretty(idea.name) }}
+{{make_title_section_underline(make_name_pretty(idea.name))}}
+{% if idea.short_description %}
+
+.. important::
+   {{ idea.short_description }}
+
+{% endif %}
+{% for section in idea.sections %}
+{{ make_name_pretty(section.name) }}
+{{ make_normal_section_underline(make_name_pretty(section.name)) }}
+
+{{ section.content }}
+
+{% endfor %}

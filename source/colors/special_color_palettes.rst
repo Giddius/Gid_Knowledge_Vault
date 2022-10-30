@@ -9,6 +9,7 @@ Yellow
 
 .. figure:: /_images/color_images/antistasi_yellow.png
    :alt: Antistasi Yellow
+   :align: left
 
    Antistasi Yellow
 
@@ -24,6 +25,7 @@ Blue
 
 .. figure:: /_images/color_images/antistasi_blue.png
    :alt: Antistasi Blue
+   :align: left
 
    Antistasi Blue
 
@@ -39,6 +41,7 @@ Black
 
 .. figure:: /_images/color_images/antistasi_black.png
    :alt: Antistasi Black
+   :align: left
 
    Antistasi Black
 
@@ -58,6 +61,7 @@ Yellow
 
 .. figure:: /_images/color_images/signal_yellow.png
    :alt: Signal Yellow
+   :align: left
 
    Signal Yellow
 

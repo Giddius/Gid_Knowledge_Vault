@@ -6,7 +6,10 @@ Get all local Git Repo Paths
 
 .. code:: powershell
 
-   Set-Location -Path D:\; Get-ChildItem . -Attributes Directory+Hidden -ErrorAction SilentlyContinue -Filter ".git" -Recurse | % { Write-Host $_.FullName -replace"\\.git" }
+   foreach ($i in (gdr -PSProvider 'FileSystem')){
+      Set-Location -Path $i.Root;
+      Get-ChildItem . -Attributes Directory+Hidden -ErrorAction SilentlyContinue -Filter ".git" -Recurse | % { Write-Host $_.parent.FullName }
+   }
 
 
 Folder of Script itself
@@ -16,3 +19,18 @@ Folder of Script itself
 
    $PSScriptRoot
 
+
+Requires Admin
+-----------------
+
+.. code:: powershell
+
+   #Requires -RunAsAdministrator
+
+
+Get all Hard-Drives
+----------------------
+
+.. code:: powershell
+
+   gdr -PSProvider 'FileSystem'

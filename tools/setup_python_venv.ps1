@@ -1,8 +1,16 @@
+#Requires -RunAsAdministrator
+
 $repoRootFolder = Split-Path $PSScriptRoot -Parent
 $requirementsFile = Join-Path -Path $repoRootFolder -ChildPath "tools\python_requirements.txt"
 $requirementsFileDev = Join-Path -Path $repoRootFolder -ChildPath "tools\python_dev_requirements.txt"
 $venvDir = Join-Path -Path $repoRootFolder -ChildPath ".venv"
 $venvExecutable = Join-Path -Path $venvDir -ChildPath "Scripts\python.exe"
+
+$rawBasePythonDir = ((python -c "import sys;print(sys.base_prefix)") | Out-String).Trim()
+$basePythonDir = Resolve-Path $rawBasePythonDir
+$BasePythonExe = Join-Path -Path $basePythonDir -ChildPath "python.exe"
+
+
 
 Push-Location $repoRootFolder
 
@@ -12,7 +20,7 @@ Write-Host $(`
     "`n--------------------`n" )`
     -ForegroundColor Yellow
 
-& "python" -m pip install --upgrade pip
+& $BasePythonExe.Trim() -m pip install --upgrade pip
 
 
 
@@ -24,11 +32,13 @@ Write-Host $(`
     -ForegroundColor Yellow
 
 
-& "python" -m venv --clear --upgrade-deps $venvDir
+& $BasePythonExe.Trim() -m venv --clear --upgrade-deps $venvDir
 
 if ($? -eq $False) {exit}
 
-
+& $venvExecutable -m pip install --upgrade wheel
+& $venvExecutable -m pip install --upgrade PEP517
+& $venvExecutable -m pip install --upgrade python-dotenv
 Write-Host $(`
     "`n"+`
     "Installing Dependencies from " +`

@@ -59,7 +59,7 @@ autosectionlabel_maxdepth = 1
 
 html_theme = 'alabaster'
 html_theme_path = []
-html_theme_options = {}
+html_theme_options = {"page_width": 1500, "body_max_width": None}
 
 
 html_last_updated_fmt = "%Y/%B/%d"

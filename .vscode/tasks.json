@@ -4,13 +4,45 @@
         {
             "label": "Generate LOCAL HTML",
             "command": "${workspaceFolder}/.venv/Scripts/antistasi-sqf-tools.exe",
-            "args": ["docs", "build", "-b", "html"],
+            "args": [
+                "docs",
+                "build",
+                "-b",
+                "html"
+            ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}",
+                "statusbar": {
+                    "backgroundColor": "statusBarItem.warningBackground"
+                }
             },
             "presentation": {
                 "echo": true,
-                "reveal": "always",
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true,
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "detail": "Generates a local html of the docs in the 'docs/html/'-Folder and shows it in a private Browser window."
+        },
+        {
+            "label": "Setup Python Venv",
+            "type": "shell",
+            "command": "powershell -ExecutionPolicy ByPass -File ${workspaceFolder}/tools/setup_python_venv.ps1",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "statusbar": {
+                    "backgroundColor": "statusBarItem.warningBackground"
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true,
                 "focus": false,
                 "panel": "shared",
                 "showReuseMessage": true,

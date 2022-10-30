@@ -23,3 +23,4 @@ Content
    /information/information_index
    /scripts/scripts_index
    /snippets/snippets_index
+   /projects/projects_index
