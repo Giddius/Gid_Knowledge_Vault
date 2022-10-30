@@ -168,6 +168,14 @@ get package info
 find all print statements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. admonition:: required packages
+
+   `attrs <https://pypi.org/project/attrs/>`_
+
+   .. code:: shell
+
+      pip install attrs
+
 .. code:: python
 
    import attr

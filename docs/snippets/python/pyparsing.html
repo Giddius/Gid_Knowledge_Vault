@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>PyParsing &#8212; Gid Knowledge Vault  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/extra_styling.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../../_static/main_favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic Powershell Snippets" href="../powershell/basics.html" />
+    <link rel="prev" title="Importing" href="importing.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="pyparsing">
+<h1>PyParsing<a class="headerlink" href="#pyparsing" title="Permalink to this headline"></a></h1>
+<section id="parse-python-like-function-signature">
+<h2>Parse Python-like function signature<a class="headerlink" href="#parse-python-like-function-signature" title="Permalink to this headline"></a></h2>
+<div class="admonition-required-packages admonition">
+<p class="admonition-title">required packages</p>
+<p><a class="reference external" href="https://pypi.org/project/pyparsing/">PyParsing</a></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install pyparsing
+</pre></div>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyparsing</span> <span class="k">as</span> <span class="nn">ppa</span>
+<span class="kn">from</span> <span class="nn">pyparsing</span> <span class="kn">import</span> <span class="n">common</span> <span class="k">as</span> <span class="n">ppc</span>
+
+<span class="n">parenthesis_open</span> <span class="o">=</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Literal</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">suppress</span><span class="p">()</span>
+<span class="n">parenthesis_close</span> <span class="o">=</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Literal</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">suppress</span><span class="p">()</span>
+
+<span class="n">equal_sign</span> <span class="o">=</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Literal</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">suppress</span><span class="p">()</span>
+<span class="n">comma</span> <span class="o">=</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Literal</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">suppress</span><span class="p">()</span>
+
+<span class="n">pos_argument</span> <span class="o">=</span> <span class="n">ppc</span><span class="o">.</span><span class="n">number</span> <span class="o">|</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Word</span><span class="p">(</span><span class="n">ppa</span><span class="o">.</span><span class="n">alphanums</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+
+<span class="n">kw_argument</span> <span class="o">=</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="n">ppc</span><span class="o">.</span><span class="n">identifier</span> <span class="o">+</span> <span class="n">equal_sign</span> <span class="o">+</span> <span class="n">pos_argument</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+
+<span class="n">arguments</span> <span class="o">=</span> <span class="p">(</span><span class="n">ppa</span><span class="o">.</span><span class="n">ZeroOrMore</span><span class="p">(</span><span class="n">pos_argument</span> <span class="o">+</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Opt</span><span class="p">(</span><span class="n">comma</span><span class="p">),</span> <span class="n">stop_on</span><span class="o">=</span><span class="n">kw_argument</span><span class="p">)(</span><span class="s2">&quot;pos_arguments&quot;</span><span class="p">)</span>
+              <span class="o">+</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Dict</span><span class="p">(</span><span class="n">ppa</span><span class="o">.</span><span class="n">ZeroOrMore</span><span class="p">(</span><span class="n">kw_argument</span> <span class="o">+</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Opt</span><span class="p">(</span><span class="n">comma</span><span class="p">)),</span> <span class="n">asdict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">set_parse_action</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])(</span><span class="s2">&quot;kw_arguments&quot;</span><span class="p">))</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Word</span><span class="p">(</span><span class="n">ppa</span><span class="o">.</span><span class="n">alphas</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="n">ppa</span><span class="o">.</span><span class="n">alphanums</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+
+<span class="n">sub_arguments</span> <span class="o">=</span> <span class="n">parenthesis_open</span> <span class="o">+</span> <span class="n">arguments</span> <span class="o">+</span> <span class="n">parenthesis_close</span>
+
+<span class="n">grammar</span> <span class="o">=</span> <span class="n">name</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">ppa</span><span class="o">.</span><span class="n">Opt</span><span class="p">(</span><span class="n">sub_arguments</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/main_logo.png" alt="Logo"/>
+            </a></p>
+<h3><a href="../../index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../colors/colors_index.html">Colors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../file_templates/file_templates_index.html">File-Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../information/information_index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/scripts_index.html">Scripts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../snippets_index.html">Snippets</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#sqf">SQF</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../snippets_index.html#python">Python</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general.html">General Python Snippets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="importing.html">Importing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PyParsing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parse-python-like-function-signature">Parse Python-like function signature</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#powershell">Powershell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#git">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#batch">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#bash">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../snippets_index.html#misc">Misc</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Giddi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
